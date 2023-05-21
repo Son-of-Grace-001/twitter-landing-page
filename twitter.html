@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .landing-page{
+      display: grid;
+      grid-template-columns: 1fr 2fr 1.5fr;
+    }
+    .user-content{
+      max-width: 100%;
+      display: flex;
+      margin-left: 40px;
+    }
+    .user-upload{
+      width: 400px;
+      height: 300px;
+      margin-right: 40px;
+      display: flex;
+      margin-left: 40px;
+    }
+
+    .left,
+    .right{
+      border-top: 1px solid grey;
+      border-right: 1px solid grey;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .center{
+      border-top: 1px solid grey;
+      border-right: 1px solid grey;
+      display: grid;
+      grid-template-rows: 0.2fr 0.2fr 0.1fr 0.15AAfr 2fr;
+    }
+    .twitter-icon{
+      display: block;
+      margin-left: 30px;
+    }
+    .home,
+    .hashtag,
+    .notification,
+    .message,
+    .bookmark,
+    .twitter-blue,
+    .profile,
+    .more{
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .home-image,
+    .hashtag-image,
+    .notification-image,
+    .message-image,
+    .bookmark-image,
+    .twitter-blue-image,
+    .profile-image,
+    .more-image{
+      width: 16px;
+      height: 16px;
+      padding-top: 16px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .home-button,
+    .more-button {
+      display:grid;
+      grid-template-columns: 1fr 3fr;
+      margin-top: 2px;
+      height: 48px;
+      width: 120px;
+      border: none;
+      border-radius: 24px;
+      margin-left: 20px;
+      background-color: white;
+    }
+    .hashtag-button,
+    .profile-button{ 
+      display:grid;
+      grid-template-columns: 1fr 3fr;
+      margin-top: 2px;
+      height: 48px;
+      width: 130px;
+      border: none;
+      border-radius: 24px;
+      margin-left: 20px;
+      background-color: white;
+    }
+    .notification-button  { 
+      display:grid;
+      grid-template-columns: 1fr 3fr;
+      margin-top: 2px;
+      height: 48px;
+      width: 150px;
+      border: none;
+      border-radius: 24px;
+      margin-left: 20px;
+      background-color: white;
+    }
+    .twitter-blue-button { 
+      display:grid;
+      grid-template-columns: 1fr 3fr;
+      margin-top: 2px;
+      height: 48px;
+      width: 160px;
+      border: none;
+      border-radius: 24px;
+      margin-left: 20px;
+      background-color: white;
+    }
+    .message-button,
+    .bookmark-button{ 
+      display:grid;
+      grid-template-columns: 1fr 3fr;
+      margin-top: 2px;
+      height: 48px;
+      width: 140px;
+      border: none;
+      border-radius: 24px;
+      margin-left: 20px;
+      background-color: white;
+    }
+
+    .tweet-button {
+      height: 48px;
+     width: 250px;
+     background-color: #08a0e9;
+     border: none;
+     border-radius: 24px;
+     margin-left: 20px;
+     margin-top: 4px;
+     color: white;
+     font-size: 16px;
+     font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tweet{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home {
+      font-weight: bold;
+    }
+
+    .home-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .hashtag-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .notification-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .message-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .bookmark-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .twitter-blue-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .profile-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .more-button:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .down:hover{
+      background-color: grey;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+
+
+    .down {
+      display: grid;
+      grid-template-columns: 1fr 4fr 1fr;
+      margin-top: 15px;
+      margin-left: 20px;
+      width: 270px;
+      height: 56px;
+      border: none;
+      border-radius: 28px;
+      align-items: center;
+      background-color: white;
+    }
+    .dp {
+      height: 40px;
+      width: 40px;
+      border: none;
+      border-radius: 20px;
+      margin-bottom: 0px;
+    }
+    .dot {
+      padding-left: 10px;
+      padding-top: 10px;
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      margin-top: 0px;
+    }
+
+    .handle {
+      font-family: Arial, Helvetica, sans-serif;
+      opacity: 0.5;
+      margin: 0px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-size: 18px
+    }
+    .username {
+      font: bolder;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0px;
+      padding-right: 4px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-size: 18px
+    }
+
+    .search-image{
+      height: 16px;
+      width: 16px;
+      padding-top: 16px;
+      padding-left: 16px;
+    }
+    .search {
+      font-size: 16px;
+      opacity: 0.5;
+      padding-left: 0px;
+    }
+    .search-button {
+      width: 380px;
+      height: 48px;
+      margin-left: 20px;
+      border-radius: 28px;
+      border: none;
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 0.5fr 1.5fr 2fr;
+      margin-bottom: 15px;
+    }
+    .trends-button {
+      width: 380px;
+      margin-left: 20px;
+      border: none;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      display: grid;
+      grid-template-rows:1.6fr 2.5fr 2.5fr 2.5fr 2.5fr 2.5fr 2.5fr 2.5fr;
+      row-gap: 6px;
+      
+    }
+    .trend {
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: -6px;
+    }
+    .trending,
+    .trending-1 {
+      display: flex;
+      justify-content: flex-start;
+      margin: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .trending-1 {
+      font-weight: bold;
+    }
+    .trending {
+      opacity: 0.5;
+    }
+    .with-dot {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+    }
+    .dots {
+      font-weight: bold;
+    }
+    .name {
+      padding-left: 0px;
+    }
+    .center-home {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .middle {
+      display: flex;
+      justify-content: space-evenly;
+      border-bottom: 1px solid grey;
+    }
+    .For-you{
+      text-decoration: underline 5px solid blue;
+      font-weight: bold;
+      padding-bottom: 0px;
+    }
+    .Following:active{
+      text-decoration: underline 5px solid blue;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .middle-details {
+      display: flex;
+    }
+    .middle-dp{
+      height: 50px;
+      width: 50px;
+      border: none;
+      border-radius: 25px;
+      margin-top: 5px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .happening{
+      font-weight: bold;
+      margin-top: 15px;
+      opacity: 0.5;
+      font-size: 20px;
+    }
+    .tweet-2 {
+      background-color: #08a0e9;
+      color: white;
+      margin-left: 200px;
+      margin-bottom: 5px;
+      width: 64px;
+      height: 32px;
+      border-radius: 16px;
+      border: none;
+      font-family: Arial, Helvetica, sans-serif;
+      align-items: center;
+    }
+    .middle-icon {
+      margin-left: 90px;
+      margin-top: 10px;
+      align-items: center;
+    }
+    .middle-image {
+      border-bottom: 0.1px solid rgb(170, 155, 155);
+      
+    }
+    .retweet-icon {
+      margin-left: 40px;
+    }
+    .user-image {
+      display: flex;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .user-icon {
+      margin-left: 15px;
+      margin-right: 10px;
+    }
+    .handle-dot{
+      padding-left: 50px;
+      font-weight: bold;
+      margin-top: 0px;
+    }
+    .handle-2 {
+      font-weight: bold;
+      margin-top: 0px;
+    }
+    .handle-3{
+      margin-top: 0px;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-page">
+
+    <div class="left">
+      <img class="twitter-icon" src="twitter icon.png.png" alt="twitter icon">
+
+      <button class="home-button">
+        <img  class="home-image" src="home.png.png" alt="home">
+        <p class="home">Home</p>
+      </button>
+
+      <button  class="hashtag-button">
+        <img class="hashtag-image" src="hashtag.png.png" alt="hashtag">
+        <p class="hashtag">Explore</p>
+      </button>
+
+      <button class="notification-button" >
+        <img class="notification-image" src="notification.png.png" alt="notification">
+        <p class="notification">Notification</p>
+      </button>
+
+      <button class="message-button" >
+        <img class="message-image" src="message.png.png" alt="message">
+        <p class="message">Message</p>
+      </button>
+
+      <button class="bookmark-button" >
+        <img class="bookmark-image" src="bookmark.png.png" alt="bookmark">
+        <p class="bookmark">Bookmark</p>
+      </button>
+
+      <button class="twitter-blue-button" >
+        <img class="twitter-blue-image" src="twiiter blue.png.png" alt="twitter blue">
+        <p class="twitter-blue">Twitter Blue</p>
+      </button>
+
+      <button class="profile-button" >
+        <img class="profile-image" src="profile.png.png" alt="profile">
+        <p class="profile">Profile</p>
+      </button>
+
+      <button class="more-button" >
+        <img class="more-image" src="more.png.png" alt="notification">
+        <p class="more">More</p>
+      </button>
+
+      <button class="tweet-button" >
+        <p class="tweet">Tweet</p>
+      </button>
+
+      <div class="details">
+        <button class="down">
+          <div class="profile-button-2">
+            <img class="dp" src="dp.jpg" alt="dp">
+          </div>
+          <div class="name">
+            <p class="username">Son Of Grace</p>
+            <p class="handle">@horlharmighty1</p>
+          </div>
+          <div>
+            <p class="dot">...</p>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="center">
+      <div>
+        <div>
+          <p class="center-home"> 
+            Home
+          </p>
+        </div>
+        <div class="middle">
+          <p class="For-you"> 
+            For you
+          </p>
+          
+            <p class="Following"> 
+              Following 
+            </p>
+        </div>
+      </div>
+      <div>
+        <div class="middle-details">
+          <img class="middle-dp" src="dp.jpg">
+          
+            <p class="happening"> 
+              What's happening 
+            </p>
+        </div>
+        <div class="middle-image">
+          <img class="middle-icon" src="icon.png">
+          
+            <button class="tweet-2"> 
+              Tweet
+            </button>
+        </div>
+      </div>
+      <div>
+        <div class="retweet">
+          <img class="retweet-icon" src="Screenshot 2023-04-28 013933.png">
+        </div>
+        <div class="user-image">
+          <img class="user-icon" src="Screenshot 2023-04-28 015228.png">
+          
+            <p class="handle-2"> 
+               Spotlight on #PeterObi#ObiDatti023
+            </p>
+            <p class="handle-3">
+              @Spotlight_Abby.Apr25
+            </p>
+            <p class="handle-dot">
+              ...
+            </p>
+        </div>
+      </div>
+      <div>
+        <p class="user-content">
+          I just realised that so many people are not aware that Chief Chimamanda
+          is married AND has a child? Her husband is Dr. Ivara Esege a 
+          Nigerian British-American doctor, AND most, if not all her books, are 
+          dedicated to him.
+        </p>
+      </div>
+      <div>
+        <img class="user-upload" src="twitter 2.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="right">
+      <button class="search-button">
+        <img class="search-image" src="search icon.png.png" alt="search icon">
+        <p class="search">Search twitter</p>
+      </button>
+
+      <div class="you">
+        <button class="trends-button">
+          <p class="trend">
+            Trends for you
+          </p>
+
+          <div class="trends">
+           <div class="with-dot">
+            <div>
+              <p class="trending">Trending</p>
+              <p class="trending-1">Kano</p>
+              <p class="trending">19.7k Tweets</p>
+            </div>
+            <div>
+              <p class="dots">...</p>
+            </div>
+           </div>
+          </div>
+
+          <div class="trends">
+            <div class="with-dot">
+             <div>
+               <p class="trending">Sports.Trending</p>
+               <p class="trending-1">Haaland</p>
+               <p class="trending">296k Tweets</p>
+             </div>
+             <div>
+               <p class="dots">...</p>
+             </div>
+            </div>
+           </div>
+
+           <div class="trends">
+            <div class="with-dot">
+             <div>
+               <p class="trending">Sports.Trending</p>
+               <p class="trending-1">Aubameyang</p>
+               <p class="trending">4,971 Tweets</p>
+             </div>
+             <div>
+               <p class="dots">...</p>
+             </div>
+            </div>
+           </div>
+
+           <div class="trends">
+            <div class="with-dot">
+             <div>
+               <p class="trending">Trending in Nigeria</p>
+               <p class="trending-1">Napoli</p>
+               <p class="trending">18.3k Tweets</p>
+             </div>
+             <div>
+               <p class="dots">...</p>
+             </div>
+            </div>
+           </div>
+
+           <div class="trends">
+            <div class="with-dot">
+             <div>
+               <p class="trending">Trending</p>
+               <p class="trending-1">Dangote</p>
+               <p class="trending">3,471k Tweets</p>
+             </div>
+             <div>
+               <p class="dots">...</p>
+             </div>
+            </div>
+           </div>
+
+           <div class="trends">
+            <div class="with-dot">
+             <div>
+               <p class="trending">Sports.Trending</p>
+               <p class="trending-1">Akanji</p>
+               <p class="trending">19.7k Tweets</p>
+             </div>
+             <div>
+               <p class="dots">...</p>
+             </div>
+            </div>
+           </div>
+
+           <div class="trends">
+            <div class="with-dot">
+             <div>
+               <p class="trending">Trending</p>
+               <p class="trending-1">Kano</p>
+               <p class="trending">19.7k Tweets</p>
+             </div>
+             <div>
+               <p class="dots">...</p>
+             </div>
+            </div>
+           </div>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+
